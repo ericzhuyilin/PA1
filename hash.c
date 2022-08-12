@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlb.h>
 #include <string.h>
-#include <pa1.h>
+#include "pa1.h"
 
 unsigned int hash(char* str){
     unsigned int hashVal = HASH_START_VAL;

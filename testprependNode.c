@@ -1,5 +1,5 @@
 /*
- * Filename: testhash
+ * Filename: testprependNode
  * Author: Yilin Zhu
  * Userid: A15862322
  * Description: Unit test program to test the function hash().
@@ -13,9 +13,9 @@
 #include "test.h"    /* For TEST() macro and stdio.h */
 #include "pa1.h"
 
-void testhash() {
+void testprependNode() {
 
-  TEST( hash( "abc" ) == 693737 );
+  TEST( prependNode( "abc" ) == 693737 );
   TEST( hash( "paul" ) == 26452777 );
   TEST( hash( "" ) == 11);
   TEST( hash( "e" ) == 508);
@@ -34,7 +34,7 @@ void testhash() {
  */
 int main() {
   fprintf( stderr, "Testing hash...\n\n" );
-  testhash();
+  testprependNode();
   fprintf( stderr, "\nDone running tests.\n" );
   return 0;
 }

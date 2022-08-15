@@ -12,9 +12,14 @@ void populateTable(linkedListNode_t** hashtbl, FILE* dataFile){
 	perror("Failed to read data file.");
 	return EXIT_FAILURE;
     }
-    while(!feof(dataFile)){
-
+    while(fgets(readbuf, MAXLEN, dataFile)){
+	int index = strchr(readbuf, "\n");
+	readbuf[index] = NULL;
+	for(int i = 0; readbuf[i] != NULL; i++){
+	    readbuf[i] = tolower(str[i]);
+	}
+	llTableAddString(hashtbl, readbuf);
     }
-    fgets(readbuf, MAXLEN, dataFile);
+    
         
 }

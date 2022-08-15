@@ -4,11 +4,16 @@
 #include "pa1.h"
 
 int checkTable(char* str, linkedListNode_t** hashtbl){
-    linkedListNode_t *target = retrieveLinkedList(hashtbl, str);
-    if(*target == NULL){
+    linkedListNode_t *bucket = retrieveLinkedList(hashtbl, str);
+    if(*bucket == NULL){
         return 0;
     }
-    while(*target != NULL){
-        if((**target).value == strcpy())
+    linkedListNode_t *curr = **bucket;
+    while(curr != NULL){
+        if(strcmp(str, curr.value) == 0){
+            return 1;
+	}
+	curr = curr.next;
     }
+    return 0;
 }

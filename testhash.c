@@ -17,6 +17,8 @@ void testhash() {
 
   TEST( hash( "abc" ) == 693737 );
   TEST( hash( "paul" ) == 26452777 );
+
+  // My tests
   TEST( hash( "" ) == 11);
   TEST( hash( "e" ) == 508);
   TEST( hash( "123" ) == 626201);

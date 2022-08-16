@@ -17,7 +17,7 @@
 void testprependNode() {
 
   // Initialize a linkedlist
-  linkedListNode_t ** arr  = newLinkedListArray(5);
+  linkedListNode_t ** arr  = newLinkedListArray(2003);
   linkedListNode_t * node1 = newLinkedListNode();
   linkedListNode_t * node2 = newLinkedListNode();
   linkedListNode_t * node3 = newLinkedListNode();

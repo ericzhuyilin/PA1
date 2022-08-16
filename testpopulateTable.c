@@ -9,6 +9,7 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "test.h"    /* For TEST() macro and stdio.h */
 #include "pa1.h"
@@ -16,7 +17,10 @@
 void testpopulateTable() {
 
   // My tests
-  
+  linkedListNode_t ** table = newLinkedListArray(2003);
+  FILE *fptr = fopen("pa1file1.txt", "r");
+  populateTable(table, fptr);
+  TEST(strcmp((**(table + 693737%2003)).value, "abc") == 0);
 
 }
 

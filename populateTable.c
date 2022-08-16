@@ -2,21 +2,28 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+#include <ctype.h>
 #include "pa1.h"
 #define MAXLEN 30
 
 void populateTable(linkedListNode_t** hashtbl, FILE* dataFile){
     char readbuf[BUFSIZ];
-    FILE *fin;
     if(dataFile == NULL){
 	perror("Failed to read data file.");
-	return EXIT_FAILURE;
+	return;
     }
     while(fgets(readbuf, MAXLEN, dataFile)){
-	int index = strchr(readbuf, "\n");
-	readbuf[index] = NULL;
-	for(int i = 0; readbuf[i] != NULL; i++){
-	    readbuf[i] = tolower(str[i]);
+	char *ptr = strchr(readbuf, '\n');
+	if(ptr != NULL){
+            *ptr = '\0';
+	    for(int i = 0; readbuf[i] != '\0'; i++){
+	        readbuf[i] = tolower(readbuf[i]);
+	    } 
+	}
+	else{
+	    for(int i = 0; i <= (ptr - readbuf); i++){
+                readbuf[i] = tolower(readbuf[i]);
+	    }
 	}
 	llTableAddString(hashtbl, readbuf);
     }

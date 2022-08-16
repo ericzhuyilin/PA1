@@ -5,7 +5,7 @@
 void prependNode(linkedListNode_t** head, char* str){
     linkedListNode_t * node = newLinkedListNode();
     char *ptr = strcp(str);
-    node.value = ptr;
-    node.next = *head;
+    (*node).value = ptr;
+    (*node).next = *head;
     *head = node;
 }

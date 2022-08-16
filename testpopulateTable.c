@@ -16,12 +16,36 @@
 
 void testpopulateTable() {
 
-  // My tests
+  // Test populate table (a few emails)
   linkedListNode_t ** table = newLinkedListArray(2003);
   FILE *fptr = fopen("pa1file1.txt", "r");
   populateTable(table, fptr);
   TEST(strcmp((**(table + 693737%2003)).value, "abc") == 0);
+  TEST(strcmp((**(table + 26452777%2003)).value, "paul") == 0);
+  TEST(strcmp((**(table + 626201%2003)).value, "123") == 0);
+  TEST(strcmp((**(table + 18845%2003)).value, "e1") == 0);
+  TEST(strcmp((**(table + 508%2003)).value, "e") == 0);
 
+  // Test populate table when contents are all capital letters
+  // PA1FILE1.txt would contain ABC, PAUL ...
+  linkedListNode_t ** captable = newLinkedListArray(2003);
+  fptr = fopen("PA1FILE1.txt", "r");
+  populateTable(captable, fptr);
+  TEST(strcmp((**(table + 693737%2003)).value, "abc") == 0);
+  TEST(strcmp((**(table + 26452777%2003)).value, "paul") == 0);
+  TEST(strcmp((**(table + 626201%2003)).value, "123") == 0);
+  TEST(strcmp((**(table + 18845%2003)).value, "e1") == 0);
+  TEST(strcmp((**(table + 508%2003)).value, "e") == 0);
+
+
+
+  // Test populate table (no email)
+  linkedListNode_t ** table2 = newLinkedListArray(3);
+  FILE *emptyFile = fopen("empty.txt", "r");
+  populateTable(table2, emptyFile);
+  TEST(*(table2) == NULL);
+  TEST(*(table2 + 1) == NULL);
+  TEST(*(table2 + 2) == NULL); 
 }
 
 /* 

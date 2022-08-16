@@ -12,6 +12,11 @@ void populateTable(linkedListNode_t** hashtbl, FILE* dataFile){
 	perror("Failed to read data file.");
 	return;
     }
+   // fseek(dataFile, 0 , SEEK_END);
+   // int size = ftell(dataFile);
+   // if(size == 0){
+   //     return; 
+   // }
     while(fgets(readbuf, MAXLEN, dataFile)){
 	char *ptr = strchr(readbuf, '\n');
 	if(ptr != NULL){

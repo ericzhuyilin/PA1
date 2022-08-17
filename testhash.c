@@ -18,10 +18,16 @@ void testhash() {
   TEST( hash( "abc" ) == 693737 );
   TEST( hash( "paul" ) == 26452777 );
 
-  // My tests
+  // Test hash on empty string
   TEST( hash( "" ) == 11);
+
+  // Test hash on single character
   TEST( hash( "e" ) == 508);
+
+  // Test hash on the numeric
   TEST( hash( "123" ) == 626201);
+
+  // Test hash on alphanumeric
   TEST( hash( "e1" ) == 18845);
 
 }

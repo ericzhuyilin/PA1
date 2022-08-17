@@ -26,7 +26,7 @@ void populateTable(linkedListNode_t** hashtbl, FILE* dataFile){
 	    } 
 	}
 	else{
-	    for(int i = 0; i <= (ptr - readbuf); i++){
+	    for(int i = 0; i < strlen(readbuf); i++){
                 readbuf[i] = tolower(readbuf[i]);
 	    }
 	}

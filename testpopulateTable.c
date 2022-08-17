@@ -46,6 +46,14 @@ void testpopulateTable() {
   TEST(*(table2) == NULL);
   TEST(*(table2 + 1) == NULL);
   TEST(*(table2 + 2) == NULL); 
+
+  // Test populate table when the file pointer is NULL
+  linkedListNode_t ** table3 = newLinkedListArray(3);
+  fptr = fopen("wrongName.txt", "r");
+  populateTable(table3, fptr);
+  TEST(*table3 ==  NULL);
+  TEST(*(table3+1) == NULL);
+  TEST(*(table3+2) == NULL);
 }
 
 /* 
